@@ -1,2 +1,2 @@
 # jonshort.me
-Personal website for Jon Short
+Personal website for Jon Short 
