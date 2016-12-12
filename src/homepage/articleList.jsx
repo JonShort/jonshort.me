@@ -12,8 +12,8 @@ const ArticleList = () => {
             <ArticleListItem
             src={ArticleImage}
             alt="Image of the React Logo"
-            title="Creating a quick portfolio using React and Tachyons"
-            description="React makes building a static portfolio quick, easy, and more exciting than using static HTML.">
+            title="Creating a quick portfolio using React and Tachyons">
+            React makes building a static portfolio quick, easy, and more exciting than using static HTML.
             </ArticleListItem>
         </section>
     )
