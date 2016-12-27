@@ -1,11 +1,13 @@
 import React from 'react';
 
-import ArticleList from './homepage/articleList';
+import ARTICLES from './data/ARTICLES';
+import ArticleList from './homepage/ArticleList';
 
 const Body = () => {
+    
     return(
-        <ArticleList />
-    )
+        <ArticleList articles={ARTICLES} />
+    );
 }
 
 export default Body;

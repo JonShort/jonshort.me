@@ -1,22 +1,20 @@
 import React from 'react';
 
-import ArticleListItem from './articleListItem';
+import ArticleListItem from './ArticleListItem';
 
-import ArticleImage from '../images/articles/react-logo.png';
+const ArticleList = ({articles}) => {
 
-const ArticleList = () => {
-    
+    var articleItem = [];
+    articles.forEach(function(article){
+        articleItem.push(<ArticleListItem article={article} key={article.title} />);
+    });
+
     return (
         <section className="mw7 center avenir">
-            <h2 className="baskerville fw1 ph3 ph0-l">News</h2>
-            <ArticleListItem
-            src={ArticleImage}
-            alt="Image of the React Logo"
-            title="Creating a quick portfolio using React and Tachyons">
-            React makes building a static portfolio quick, easy, and more exciting than using static HTML.
-            </ArticleListItem>
+            <h2 className="baskerville fw1 ph3 ph0-l">Blog</h2>
+            {articleItem}
         </section>
-    )
+    );
 }
 
 export default ArticleList;
