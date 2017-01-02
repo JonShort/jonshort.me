@@ -6,7 +6,7 @@ const ArticleList = ({articles}) => {
 
     var articleItem = [];
     articles.forEach(function(article){
-        articleItem.push(<ArticleListItem article={article} key={article.title} />);
+        articleItem.push(<ArticleListItem article={article} key={article.url} />);
     });
 
     return (
