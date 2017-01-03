@@ -13,7 +13,7 @@ class ArticleWrapper extends React.Component {
     var articleItem = [];
     articleData.forEach(function(article){
         if (article.url === articleUrl) {
-            articleItem.push(<ArticleContent article={article} key={article.url} />);
+            articleItem.push(<ArticleContent article={article} paragraphs={article.paragraphs} key={article.url} />);
         }
     });
 
