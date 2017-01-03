@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Header from './header/header';
-import Body from './body';
-import Footer from './footer/footer';
+import Footer from './footer/Footer';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Body />
+        {this.props.children}
         <Footer />
       </div>
     );
