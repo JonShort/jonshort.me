@@ -11,7 +11,6 @@ const ArticleList = ({articles}) => {
 
     return (
         <section className="mw7 center avenir">
-            <h2 className="baskerville fw1 ph3 ph0-l">Blog</h2>
             {articleItem}
         </section>
     );
