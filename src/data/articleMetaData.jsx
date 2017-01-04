@@ -7,7 +7,7 @@ var articleMetaData = [
     url: '/why-react-tachyons',
     title: 'Why I decided to make my Portfolio using React and Tachyons',
     description: 
-        `There are loads of super-quick ways to get a static site like this one
+        `There are loads of quick ways to get a static site like this one
         up and running in - realistically - a few hours, why choose React?`
     }
 ];

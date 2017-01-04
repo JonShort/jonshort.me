@@ -1,30 +1,12 @@
 import React from 'react';
 
-const svgFill = {
-    fill: 'currentcolor',
-};
-
 const Footer = () => {
     return (
-        <footer className="pv4 ph3 ph5-ns tc">
-            <a className="link dim gray dib h2 w2 br-100 mr3 " href="https://twitter.com/altshort" target="_blank">
-                <svg data-icon="twitter" viewBox="0 0 32 32" style={svgFill}>
-                <title>Twitter</title>
-                <path d="M2 4 C6 8 10 12 15 11 A6 6 0 0 1 22 4 A6 6 0 0 1 26 6 A8 8 0 0 0 31 4 A8 8 0 0 1 28 8 A8 8 0 0 0 32 7 A8 8 0 0 1 28 11 A18 18 0 0 1 10 30 A18 18 0 0 1 0 27 A12 12 0 0 0 8 24 A8 8 0 0 1 3 20 A8 8 0 0 0 6 19.5 A8 8 0 0 1 0 12 A8 8 0 0 0 3 13 A8 8 0 0 1 2 4"></path>
-                </svg>
+        <footer className="pv4 ph2 tc">
+            <a className="no-underline near-white bg-animate bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2" href="https://github.com/JonShort/jonshort.me" target="_blank" title="GitHub">
+                <svg className="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
+                <span className="f6 ml3 pr2">View on GitHub</span>
             </a>
-            <a className="link dim gray dib br-100 h2 w2 mr3 " href="https://github.com/JonShort" target="_blank">
-                <svg data-icon="github" viewBox="0 0 32 32" style={svgFill}>
-                <title>Github</title>
-                <path d="M0 18 C0 12 3 10 3 9 C2.5 7 2.5 4 3 3 C6 3 9 5 10 6 C12 5 14 5 16 5 C18 5 20 5 22 6 C23 5 26 3 29 3 C29.5 4 29.5 7 29 9 C29 10 32 12 32 18 C32 25 30 30 16 30 C2 30 0 25 0 18 M3 20 C3 24 4 28 16 28 C28 28 29 24 29 20 C29 16 28 14 16 14 C4 14 3 16 3 20 M8 21 A1.5 2.5 0 0 0 13 21 A1.5 2.5 0 0 0 8 21 M24 21 A1.5 2.5 0 0 0 19 21 A1.5 2.5 0 0 0 24 21 z"></path>
-                </svg>
-            </a>
-            <div className="mt4">
-                <a href="#" className="f6 link dim gray dib mr3 mr4-ns">Help</a>
-                <a href="#" className="f6 link dim gray dib mr3 mr4-ns">Send feedback</a>
-                <a href="#" className="f6 link dim gray dib mr3 mr4-ns">Privacy</a>
-                <a href="#" className="f6 link dim gray dib">Terms</a>
-            </div>
         </footer>
     );
 }
