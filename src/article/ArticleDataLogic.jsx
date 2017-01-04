@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArticleLogic = ({type, value}) => {
+const ArticleDataLogic = ({type, value}) => {
 
     return (
         <div>
@@ -11,4 +11,4 @@ const ArticleLogic = ({type, value}) => {
     )
 }
 
-export default ArticleLogic;
+export default ArticleDataLogic;
