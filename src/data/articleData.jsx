@@ -8,27 +8,30 @@ var articleData = [
         date: '3 January, 2017',
         title: 'A React Portfolio',
         subtitle: 'Why I decided to make my Portfolio using React and Tachyons',
-        paragraphs: [
-            `Over the past year I've had a few attempts at creating a decent portfolio
+        content: [
+            {type: "p", value: `Over the past year I've had a few attempts at creating a decent portfolio
             using different front-end frameworks, but React has been the first that
-            has provided enough challenge, with a reasonable learning curve.`,
-            `When starting the project I used the reasonably new create-react-app
-            method, which made the initial setup extremely smooth. Luckily I didn't 
-            have any issues with the way the environment was set up, so coding could
-            begin straight away.`,
-            `The re-usability of component-based code makes styling in React more relaxing
-            than traditional static HTML, no longer do you have to mess around with a 
-            monolithic stylesheet, spending ages thinking of classnames that you'll have 
-            to remember in sequence. Once the component is written, that's it.`,
-            `This is where Tachyons comes into play. The latest evolution of atomic-based 
-            CSS, the framework comes in at around 14kb and consists of small classes that 
-            handle low-level styling. When using the classes it feels similar to in-line 
-            styles (no longer a dirty word thanks to components!).`,
-            `I'm still quite far from feeling like this portfolio project is complete,
-            and I've made a few decisions that i'll need to see how they pan out during 
-            use. Overall it's been a great learning exercise, and I'd reccomend it 
-            to anyone looking for a fun project.`,
-            `The code for this site is available on my GitHub, feel free to have a look.`
+            has provided enough challenge, with a reasonable learning curve.`},
+            {type: "p", value: `When starting the project I used the reasonably new create-react-app
+            method, which makes the initial setup extremely smooth. I didn't have any immediate issues 
+            with the way the webpack environment was set up, so I could start coding straight away.`},
+            {type: "p", value: `The re-usability of component-based code makes styling in React more relaxing
+            than traditional static HTML, no longer do you have to mess around with a web of SASS or 
+            LESS stylesheets, spending ages thinking of classnames that you'll have to remember 
+            in sequence every time you want to repeat the same UI.`},
+            {type: "standout", value: `Once the component is written, that's it.`},
+            {type: "p", value: `This is where the CSS framework Tachyons comes into play. 
+            The latest evolution of atomic-based CSS, the framework comes in at around 14kb and 
+            consists of small classes that handle low-level styling. It's got really strong documentation, 
+            and a clear purpose:`},
+            {type: "quote", value: `Tachyons isn't just a monolithic framework. It's a collection of 
+            small modules that can be mixed and matched or used independently. Use what you need. 
+            Leave the rest.`},
+            {type: "p", value: `I'm still quite far from feeling like this portfolio project is complete,
+            and I've made a few decisions that i'll need to see pan out in long-term use. 
+            Overall it's been a great learning exercise, and I'd reccomend using React with Tachyons 
+            to anyone looking to look at a fresh approach to web design / development.`},
+            {type: "p", value:`The code for this site is available on my GitHub, feel free to have a look.`}
         ]
     },
 ];
