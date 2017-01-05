@@ -21,7 +21,7 @@ class ArticleListItem extends React.Component {
                 </Link>
             </article>
         );
-    }
-}
+    };
+};
 
 export default ArticleListItem;
