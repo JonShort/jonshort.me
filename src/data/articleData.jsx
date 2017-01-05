@@ -1,9 +1,15 @@
-import ArticleImage from '../images/articles/react-logo.png';
-
 var articleData = [
     {
-        imageSrc: ArticleImage,
-        imageAlt: 'Image of the React logo',
+        url: '/low-fi-vs-hi-fi',
+        date: '5 January, 2017',
+        title: 'Low-fi vs. High-fi',
+        color: 'light-green',
+        subtitle: 'In a component age, do developers still need high-fi designs?',
+        content: [
+            {type: "standout", value: `This article currently under construction`}
+        ]
+    },
+    {
         url: '/why-react-tachyons',
         date: '3 January, 2017',
         title: 'A React Portfolio',
@@ -33,7 +39,7 @@ var articleData = [
             to anyone looking to look at a fresh approach to web design / development.`},
             {type: "p", value:`The code for this site is available on my GitHub, feel free to have a look.`}
         ]
-    },
+    }
 ];
 
 export default articleData;

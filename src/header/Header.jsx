@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Avatar from '../images/avatar.png';
+import Avatar from '../images/avatar.jpg';
 
 const Header = () => {
     return (
@@ -10,6 +10,6 @@ const Header = () => {
             <h2 className="f6 gray fw2 ttu tracked">Designer</h2>
         </header>
     );
-}
+};
 
 export default Header;
