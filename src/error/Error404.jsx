@@ -12,6 +12,6 @@ const Error404 =
             <span className="pl1">Return to Home</span>
         </Link>
     </div>
-    </section>;
+    </section>; 
 
 export default Error404;
