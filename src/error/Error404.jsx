@@ -8,7 +8,7 @@ const Error404 =
         <h2 className="tc f1-l fw1">I've become lost in the matrix</h2>
     </header>
     <div className="bb b--black-10 pt2 pb4 flex justify-center">
-        <Link to="/" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
+        <Link to="/jonshort.me" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
             <span className="pl1">Return to Home</span>
         </Link>
     </div>
