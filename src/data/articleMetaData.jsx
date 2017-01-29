@@ -4,7 +4,7 @@ var articleMetaData = [
     {
     imageSrc: image.LowRezDesign,
     imageAlt: 'Image of a low fidelity design',
-    url: '/jonshort.me/low-fi-vs-hi-fi',
+    url: '/low-fi-vs-hi-fi',
     title: 'Low-fi vs. High-fi',
     description: 
         `With component-based design and development becoming more prevalent,
@@ -13,7 +13,7 @@ var articleMetaData = [
     {
     imageSrc: image.ReactLogo,
     imageAlt: 'Image of the React logo',
-    url: '/jonshort.me/why-react-tachyons',
+    url: '/why-react-tachyons',
     title: 'Why I decided to make my portfolio using React and Tachyons',
     description: 
         `There are loads of quick ways to get a static site like this one

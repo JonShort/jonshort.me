@@ -9,7 +9,7 @@ import './index.css';
 
 ReactDOM.render(
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
-    <Route path="/jonshort.me" component={App}>
+    <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path=":articleName" component={ArticleWrapper} />
     </Route>

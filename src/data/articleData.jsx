@@ -1,6 +1,6 @@
 var articleData = [
     {
-        url: '/jonshort.me/low-fi-vs-hi-fi',
+        url: '/low-fi-vs-hi-fi',
         date: '5 January, 2017',
         title: 'Low-fi vs. High-fi',
         color: 'light-green',
@@ -10,7 +10,7 @@ var articleData = [
         ]
     },
     {
-        url: '/jonshort.me/why-react-tachyons',
+        url: '/why-react-tachyons',
         date: '3 January, 2017',
         title: 'A React Portfolio',
         subtitle: 'Why I decided to make my Portfolio using React and Tachyons',
