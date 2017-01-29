@@ -11,7 +11,7 @@ ReactDOM.render(
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="/:articleName" component={ArticleWrapper} />
+      <Route path=":articleName" component={ArticleWrapper} />
     </Route>
   </Router>
   ,
