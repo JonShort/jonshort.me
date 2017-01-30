@@ -2,7 +2,7 @@
   "name": "jonshort.me",
   "version": "0.1.0",
   "description": "Personal website of Jon Short - Designer",
-  "homepage": "https://jonshort.github.io/jonshort.me",
+  "homepage": "https://jonshort.me",
   "main": "index.js",
   "private": true,
   "repository": {
