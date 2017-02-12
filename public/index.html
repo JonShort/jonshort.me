@@ -11,14 +11,6 @@
       // Single Page Apps for GitHub Pages
       // https://github.com/rafrex/spa-github-pages
       // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
-      // ----------------------------------------------------------------------
-      // This script checks to see if a redirect is present in the query string
-      // and converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
       (function(l) {
         if (l.search) {
           var q = {};
@@ -37,10 +29,22 @@
       }(window.location))
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
-
+    <link rel="stylesheet" href="pre-react.css"/>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="preReact-container">
+        <img src="./react-vector.svg"/>
+        <p class="loading-message">Loading</p>
+        <noscript>
+          <p>This website is built in React, which requires javascript to be enabled.</p>
+          <p>You can find the source code for this site below</p>
+          <p>
+            <a href="https://github.com/JonShort/jonshort.me" alt="JonShort github page">https://github.com/JonShort/jonshort.me</a>
+          </p>
+        </noscript>
+      </div>
+    </div>
     <!--
       Hello!
 
