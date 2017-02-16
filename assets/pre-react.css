@@ -16,7 +16,7 @@
     z-index: 2;
 }
 
-.preReact-container img {
+.preReact-container svg {
     animation: spin 3s infinite linear;
     height: 200px;
     width: 200px;
