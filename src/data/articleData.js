@@ -1,4 +1,4 @@
-var articleData = [
+const articleData = [
     {
         url: '/low-fi-vs-hi-fi',
         date: '5 January, 2017',
