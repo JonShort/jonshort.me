@@ -1,9 +1,9 @@
 import * as image from '../images/articleThumbs';
 
-var articleMetaData = [
+const articleMetaData = [
     {
     imageSrc: image.LowRezDesign,
-    imageAlt: 'Image of a low fidelity design',
+    imageAlt: 'Low fidelity design',
     url: '/low-fi-vs-hi-fi',
     title: 'Low-fi vs. High-fi',
     description: 
@@ -12,7 +12,7 @@ var articleMetaData = [
     },
     {
     imageSrc: image.ReactLogo,
-    imageAlt: 'Image of the React logo',
+    imageAlt: 'The React logo',
     url: '/why-react-tachyons',
     title: 'Why I decided to make my portfolio using React and Tachyons',
     description: 
