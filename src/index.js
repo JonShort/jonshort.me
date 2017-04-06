@@ -12,9 +12,10 @@ ReactDOM.render(
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path=":articleName" component={ArticleWrapper}>
+      <Route path="article/:articleName" component={ArticleWrapper}>
         <Route path="**" component={Error404} />
       </Route>
+      <Route path="*" component={Error404} />
     </Route>
   </Router>
   ,
