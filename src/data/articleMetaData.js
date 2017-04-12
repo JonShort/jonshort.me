@@ -1,10 +1,12 @@
 import * as image from '../images/articleThumbs';
 
+const articleRoot = '/article';
+
 const articleMetaData = [
     {
     imageSrc: image.LowRezDesign,
     imageAlt: 'Low fidelity design',
-    url: '/low-fi-vs-hi-fi',
+    url: `${articleRoot}/low-fi-vs-hi-fi`,
     title: 'Low-fi vs. High-fi',
     description: 
         `With component-based design and development becoming more prevalent,
@@ -13,7 +15,7 @@ const articleMetaData = [
     {
     imageSrc: image.ReactLogo,
     imageAlt: 'The React logo',
-    url: '/why-react-tachyons',
+    url: `${articleRoot}/why-react-tachyons`,
     title: 'Why I decided to make my portfolio using React and Tachyons',
     description: 
         `There are loads of quick ways to get a static site like this one

@@ -1,6 +1,8 @@
+const articleRoot = '/article';
+
 const articleData = [
     {
-        url: '/low-fi-vs-hi-fi',
+        url: `${articleRoot}/low-fi-vs-hi-fi`,
         date: '5 January, 2017',
         title: 'Low-fi vs. High-fi',
         color: 'light-green',
@@ -10,7 +12,7 @@ const articleData = [
         ]
     },
     {
-        url: '/why-react-tachyons',
+        url: `${articleRoot}/why-react-tachyons`,
         date: '3 January, 2017',
         title: 'A React Portfolio',
         subtitle: 'Why I decided to make my Portfolio using React and Tachyons',
@@ -18,9 +20,9 @@ const articleData = [
             {type: "p", value: `Over the past year I've had a few attempts at creating a decent portfolio
             using different front-end frameworks, but React has been the first that
             has provided enough challenge, with a reasonable learning curve.`},
-            {type: "p", value: `When starting the project I used the reasonably new create-react-app
-            method, which makes the initial setup extremely smooth. I didn't have any immediate issues 
-            with the way the webpack environment was set up, so I could start coding straight away.`},
+            {type: "p", value: `To start the project i used create-react-app, which makes the initial setup
+            extremely easy. I didn't have any immediate issues with the way the webpack environment was set
+            up, so I could start coding straight away.`},
             {type: "p", value: `The re-usability of component-based code makes styling in React more relaxing
             than traditional static HTML, no longer do you have to mess around with a web of SASS or 
             LESS stylesheets, spending ages thinking of classnames that you'll have to remember 
