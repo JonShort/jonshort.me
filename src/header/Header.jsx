@@ -3,12 +3,12 @@ import { Link } from 'react-router';
 
 const Header = () => (
     <nav className="pa3 pa4-ns">
-        <a className="link dim black b f1 f-headline-ns tc db" href="https://twitter.com/altshort" target="_blank" title="Twitter">Jon Short</a>
+        <h1 className="black b f1 f-headline-ns tc ma0 db">Jon Short</h1>
         <h2 className="f6 gray fw2 tc ttu tracked mt0 mb3 mb4-ns">Design / Front-End</h2>
         <div className="tc pb3">
-            <Link className="link dim gray f6 f5-ns dib mr3" to="/" title="Home">Home</Link>
+            <a className="link dim gray f6 f5-ns dib mr3" href="https://www.github.com/jonshort" target="_blank" title="Github">Github</a>
+            <a className="link dim gray f6 f5-ns dib mr3" href="https://www.twitter.com/altshort" target="_blank" title="Twitter">Twitter</a>
             <Link className="link dim gray f6 f5-ns dib mr3" to="/about" title="About">About</Link>
-            <Link className="link dim gray f6 f5-ns dib" to="/contact" title="Contact">Contact</Link>
         </div>
     </nav>
 );
