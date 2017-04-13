@@ -15,11 +15,11 @@ const articleMetaData = [
     {
     imageSrc: image.ReactLogo,
     imageAlt: 'The React logo',
-    url: `${articleRoot}/why-react-tachyons`,
-    title: 'Why I decided to make my portfolio using React and Tachyons',
+    url: `${articleRoot}/using-react-tachyons`,
+    title: 'Building a portfolio with React and Tachyons',
     description: 
-        `There are loads of quick ways to get a static site like this one
-        up and running in - realistically - a few hours, why choose React?`
+        `There are loads of quick ways to get a static site up and running quickly,
+        is it worth using React and Tachyons?`
     }
 ];
 
