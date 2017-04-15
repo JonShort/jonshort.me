@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { 
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-import App from './App';
 import Home from './homepage/Home';
 import ArticleWrapper from './article/ArticleWrapper'
 import About from './about/About';
-import Error404 from "./error/Error404";
+import Error404 from './error/Error404';
+
 import './index.css';
 
 ReactDOM.render(
-  <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home}/>
-      <Route path="article/:articleName" component={ArticleWrapper}>
-        <Route path="**" component={Error404} />
-      </Route>
-      <Route path="about" component={About} />
-      <Route path="*" component={Error404} />
-    </Route>
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route path="/article/:articleName" component={ArticleWrapper} />
+      <Route path="/about" component={About} />
+      <Route component={Error404} />
+    </Switch>
   </Router>
   ,
   document.getElementById('root')
