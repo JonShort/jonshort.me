@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import ArticleListItem from './ArticleListItem';
+import ScrollToTop from '../ScrollToTop';
 
 const ArticleList = ({articles}) => {
 
@@ -11,6 +12,7 @@ const ArticleList = ({articles}) => {
 
     return (
         <section className="mw7 center avenir">
+            <ScrollToTop />
             {articleItem}
         </section>
     );
