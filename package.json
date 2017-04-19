@@ -1,6 +1,6 @@
 {
   "name": "jonshort.me",
-  "version": "0.21.3",
+  "version": "0.1.0",
   "description": "Personal website of Jon Short - Designer",
   "homepage": "https://jonshort.me",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "gh-pages": "^0.12.0",
     "imagemin-cli": "^3.0.0",
     "react-scripts": "^0.9.5",
-    "tachyons": "^4.5.5",
+    "tachyons": "^4.7.1",
     "tachyons-cli": "^1.0.10"
   },
   "dependencies": {
