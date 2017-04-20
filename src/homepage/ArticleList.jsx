@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 
 import ArticleListItem from './ArticleListItem';
 import ScrollToTop from '../ScrollToTop';
