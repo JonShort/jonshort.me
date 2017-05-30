@@ -52,7 +52,7 @@ const ArticleContent = (InitialComponent) => {
         color: "gold"
     };
 
-    ArticleContent.displayName = `ArticleWrapper(${InitialComponent.displayName || InitialComponent.name || 'Component'})`;
+    ArticleContent.displayName = `ArticleContent(${InitialComponent.displayName || InitialComponent.name || 'Component'})`;
     return ArticleWrapper(ArticleContent);
 };
 
