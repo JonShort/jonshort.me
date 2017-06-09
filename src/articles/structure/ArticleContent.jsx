@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import ArticleWrapper from './ArticleWrapper';
-
 const ArticleContent = (InitialComponent) => {
     class ArticleContent extends Component {
         render() {
@@ -53,7 +51,7 @@ const ArticleContent = (InitialComponent) => {
     };
 
     ArticleContent.displayName = `ArticleContent(${InitialComponent.displayName || InitialComponent.name || 'Component'})`;
-    return ArticleWrapper(ArticleContent);
+    return ArticleContent;
 };
 
 export default ArticleContent;

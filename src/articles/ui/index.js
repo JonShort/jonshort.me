@@ -1,9 +1,9 @@
-import Para from './Para';
+import P from './P';
 import Quote from './Quote';
 import Standout from './Standout';
 
 export {
-    Para,
+    P,
     Quote,
     Standout,
 };
