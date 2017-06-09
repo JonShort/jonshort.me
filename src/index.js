@@ -6,18 +6,24 @@ import {
   Switch,
 } from 'react-router-dom';
 
+// General Components
 import Home from './homepage/Home';
-import ArticleWrapper from './article/ArticleWrapper'
 import About from './about/About';
 import Error404 from './error/Error404';
 
+// Articles
+import {
+  UsingReactTachyons
+} from './articles/composed';
+
+// Styles
 import './index.css';
 
 ReactDOM.render(
   <Router>
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route path="/article/:articleName" component={ArticleWrapper} />
+      <Route exact path="/article/using-react-tachyons" component={UsingReactTachyons} />
       <Route path="/about" component={About} />
       <Route component={Error404} />
     </Switch>
