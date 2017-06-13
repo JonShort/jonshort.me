@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "gh-pages": "^1.0.0",
-    "imagemin-cli": "^3.0.0",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.0.1",
     "prop-types": "^15.5.10",
     "react-scripts": "^1.0.7",
     "tachyons": "^4.7.4",
@@ -30,7 +32,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "css": "tachyons src/App.css > src/index.css --minify",
-    "images": "imagemin assets/images/* -o=src/images && imagemin assets/images/articleThumbs/* -o=src/images/articleThumbs",
+    "images": "node assets/imagemin/config.js",
     "prestart": "npm run css && npm run images",
     "prebuild": "npm run css && npm run images",
     "predeploy": "npm run build"
