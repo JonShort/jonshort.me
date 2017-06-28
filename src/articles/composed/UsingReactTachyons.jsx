@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import ArticleWrapper from '../structure/ArticleWrapper';
-import ArticleContent from '../structure/ArticleContent';
+import ArticleWrapper from '../wrappers/ArticleWrapper';
+import ArticleContent from '../wrappers/ArticleContent';
 
 import {
     P,
@@ -71,6 +71,7 @@ class UsingReactTachyons extends Component {
 
 UsingReactTachyons.propTypes = {
     color: PropTypes.string,
+    setColor: PropTypes.func,
 };
 
 UsingReactTachyons.defaultProps = {
