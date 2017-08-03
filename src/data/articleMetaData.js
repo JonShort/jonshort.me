@@ -11,7 +11,7 @@ const articleMetaData = [
         title: '4 Months of Styled Components',
         shortTitle: 'A Style Journey',
         subtitle: 'Thoughts on Styled Components 4 months after adoption',
-        date: '23 June, 2017',
+        date: '3 August, 2017',
         description: 
             `In a world where css-in-js is becoming more common, how well does
             Styled Components stand up to a real-world use-case?`,
