@@ -5,7 +5,7 @@ const articleRoot = '/article';
 
 const articleMetaData = [
     {
-        imageSrc: image.ReactLogo,
+        imageSrc: image.StyledComponents,
         imageAlt: 'The React logo',
         url: `${articleRoot}/using-styled-components`,
         title: '4 Months of Styled Components',
