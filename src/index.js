@@ -13,7 +13,8 @@ import Error404 from './error/Error404';
 
 // Articles
 import {
-  UsingReactTachyons
+  UsingReactTachyons,
+  UsingStyledComponents,
 } from './articles/composed';
 
 // Styles
@@ -24,6 +25,7 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route exact path="/article/using-react-tachyons" component={UsingReactTachyons} />
+      <Route exact path="/article/using-styled-components" component={UsingStyledComponents} />
       <Route path="/about" component={About} />
       <Route component={Error404} />
     </Switch>
