@@ -10,6 +10,7 @@
     "url": "https://github.com/JonShort/jonshort.me"
   },
   "devDependencies": {
+    "cypress": "^0.20.1",
     "imagemin": "^5.3.1",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-pngquant": "^5.0.1",
@@ -33,6 +34,7 @@
     "images": "node assets/imagemin/config.js",
     "prestart": "npm run css && npm run images",
     "prebuild": "npm run css && npm run images",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "cypress:open": "cypress open"
   }
 }
