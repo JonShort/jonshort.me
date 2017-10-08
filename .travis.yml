@@ -1,8 +1,14 @@
 language: node_js
 node_js:
   - "7"
+install:
+  - yarn
+before_script:
+  - npm run start -- --silent &
+script:
+  - cypress run --record --key $CYPRESS_RECORD_KEY # Set in travis-ci.org dashboard
 after_success:
-  - yarn run build
+  - npm run build
 deploy:
   fqdn: jonshort.me
   github_token: $GH_TOKEN # Set in travis-ci.org dashboard

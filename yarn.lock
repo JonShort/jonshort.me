@@ -2010,8 +2010,8 @@ currently-unhandled@^0.4.1:
     array-find-index "^1.0.1"
 
 cypress@^0.20.1:
-  version "0.20.1"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-0.20.1.tgz#5bbf1cdb2ed2e4c342f98cea8085852c3bc0ea0c"
+  version "0.20.3"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-0.20.3.tgz#741816124bfe544917b22d545cd2667696c0bb1c"
   dependencies:
     "@cypress/listr-verbose-renderer" "0.4.1"
     "@cypress/xvfb" "1.0.4"

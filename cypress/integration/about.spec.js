@@ -1,12 +1,6 @@
 describe('About page test', function() {
-  it('Visits localhost', function() {
-    cy.visit('http://localhost:3000/')
-  })
-
-  it('Visits about page', function() {
-    cy.contains('About').click()
-    
-    cy.url().should('include', '/about')
+  it('Visits localhost - about page', function() {
+    cy.visit('http://localhost:3000/about')
   })
 
   it('Checks the header & external links', function() {
@@ -22,12 +16,18 @@ describe('About page test', function() {
       .get('article')
       .children('div')
       .children()
-      .should('have.length', 4)
+      .should('to.not.have.length', 0)
   })
 
-  it('Returns to homepage', function() {
+  it('Navigates to homepage', function() {
     cy.get('a:contains("Home")').click()
 
     cy.url().should('be', 'http://localhost:3000/')
+  })
+
+  it('Returns to about page', function() {
+    cy.contains('About').click()
+    
+    cy.url().should('include', '/about')
   })
 })
