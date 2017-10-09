@@ -4,9 +4,13 @@ node_js:
 install:
   - yarn
 before_script:
-  - npm run start -- --silent &
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+      npm run start &;
+    fi
 script:
-  - cypress run --record --key $CYPRESS_RECORD_KEY # Set in travis-ci.org dashboard
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+      cypress run --record --key $CYPRESS_RECORD_KEY;
+    fi
 after_success:
   - npm run build
 deploy:
