@@ -1,15 +1,15 @@
 language: node_js
 node_js:
   - "7"
-install:
-  - yarn
 cache:
   directories:
     - /home/travis/.cypress/Cypress
+install:
+  - yarn
 before_script:
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash "npm run start &"; fi'
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash -c "npm run start &"; fi
 script:
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash "cypress run --record --key $CYPRESS_RECORD_KEY"; fi'
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash -c "cypress run --record --key $CYPRESS_RECORD_KEY"; fi
 after_success:
   - npm run build
 deploy:
