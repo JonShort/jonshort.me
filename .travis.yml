@@ -7,13 +7,9 @@ cache:
   directories:
     - /home/travis/.cypress/Cypress
 before_script:
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-      bash npm run start &;
-    fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash "npm run start &"; fi'
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-      bash cypress run --record --key $CYPRESS_RECORD_KEY;
-    fi
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash "cypress run --record --key $CYPRESS_RECORD_KEY"; fi'
 after_success:
   - npm run build
 deploy:
