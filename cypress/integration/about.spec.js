@@ -16,7 +16,7 @@ describe('About page test', function() {
       .get('article')
       .children('div')
       .children()
-      .should('to.not.have.length', 0)
+      .should(a => expect(a.length, 'body copy [array]').to.be.greaterThan(0))
   })
 
   it('Navigates to homepage', function() {
