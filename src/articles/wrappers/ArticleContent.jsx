@@ -24,7 +24,7 @@ const ArticleContent = (InitialComponent) => {
                             <h5 className="f6 ttu tracked black-80">By {this.props.article.author ? this.props.article.author : 'Jon Short'}</h5>
                         </div>
                     </header>
-                    <div className="pa4 pb0 ph7-l georgia mw9-l center">
+                    <section className="pa4 pb0 ph7-l georgia mw9-l center">
                         <InitialComponent color={calcColor} setColor={this.props.setColor} />
                         <div className="bb b--black-10 pt2 pb4">
                             <Link to="/" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
@@ -35,7 +35,7 @@ const ArticleContent = (InitialComponent) => {
                                 <span className="pl1">Return to Home</span>
                             </Link>
                         </div>
-                    </div>
+                    </section>
                 </article>
             );
         }

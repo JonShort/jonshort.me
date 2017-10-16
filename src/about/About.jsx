@@ -26,7 +26,7 @@ const About = () => {
                     </p>
                     <p className="f5 lh-copy measure">
                     Recently I've been working on RightIndem's <a className="f5 fw6 bg-blue white no-underline underline-hover" href="https://facebook.github.io/react/" target="_blank" rel="noopener noreferrer">React</a> application,
-                    creating a re-usable UI component library. The components are documented using <a className="f5 fw6 bg-red white no-underline underline-hover" href="https://getstorybook.io/" target="_blank" rel="noopener noreferrer">React Storybook </a>
+                    creating a re-usable UI component library. The components are documented using <a className="f5 fw6 bg-red white no-underline underline-hover" href="https://storybook.js.org/" target="_blank" rel="noopener noreferrer">React Storybook </a>
                     which provides a nice sandbox for UI testing, clear documentation of propTypes
                     and usage.
                     </p>

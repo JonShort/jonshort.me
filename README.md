@@ -5,7 +5,7 @@ This is the public repo for [my website](http://jonshort.me/), which is built in
 To run this locally:
 
 - `git clone` it somewhere
-- Run `npm install`
+- Run `yarn` or `npm install`
 - Run `npm start`
 - That's it!
 

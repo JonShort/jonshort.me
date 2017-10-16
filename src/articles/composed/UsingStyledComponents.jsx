@@ -18,7 +18,7 @@ class UsingStyledComponents extends Component {
 
     render() {
         return (
-            <div>
+            <div className="t-body">
                 <P>
                     At time of writing, it's been five months since myself and <A color={this.props.color} href="https://twitter.com/paulwallas">Paul Wallas</A> incorporated Styled Components
                     into the main React web-app at <A color={this.props.color} href="https://rightindem.com">Rightindem</A>. Since then we've seen the app grow from a simple MVP into a fleshed out
