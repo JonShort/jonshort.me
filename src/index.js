@@ -6,6 +6,9 @@ import {
   Switch,
 } from 'react-router-dom';
 
+// Service worker
+import registerServiceWorker from './registerServiceWorker';
+
 // General Components
 import Home from './homepage/Home';
 import About from './about/About';
@@ -33,3 +36,4 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
+registerServiceWorker();
