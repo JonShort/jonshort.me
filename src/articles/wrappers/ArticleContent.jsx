@@ -12,10 +12,10 @@ const ArticleContent = (InitialComponent) => {
 
             return (
                 <article>
-                    <header className={"sans-serif bg-" + calcColor}>
-                        <div className="mw9 center pa4 pt5-ns ph7-l">
+                    <header className={"sans-serif dt w-100 bg-" + calcColor} style={{ height: '96vh'}}>
+                        <div className="mw9 center pa4 pt5-ns ph7-l dtc v-mid">
                             <time className="f6 mb2 dib ttu tracked"><small>{this.props.article.date}</small></time>
-                            <h3 className="f2 f1-m f-headline-l measure-narrow lh-title mv0">
+                            <h3 className="f1 f-headline-l measure-narrow lh-title mv0">
                                 <span className="bg-black-90 lh-copy white pa1 tracked-tight">
                                 {this.props.article.shortTitle ? this.props.article.shortTitle : this.props.article.title}
                                 </span>

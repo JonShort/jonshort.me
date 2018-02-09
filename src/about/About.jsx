@@ -20,7 +20,7 @@ const About = () => {
                 </header>
                 <div className="fn fl-ns w-50-ns">
                     <p className="f5 lh-copy measure mt0-ns">
-                    I am a developer at <a className="f5 fw6 bg-dark-green white no-underline underline-hover" href="https://rightindem.com/" target="_blank" rel="noopener noreferrer">RightIndem</a>, 
+                    I am a front-end developer at <a className="f5 fw6 bg-dark-green white no-underline underline-hover" href="https://rightindem.com/" target="_blank" rel="noopener noreferrer">RightIndem</a>, 
                     focusing on best practice, maintainability, and bridging the gap between
                     design and development.
                     </p>
