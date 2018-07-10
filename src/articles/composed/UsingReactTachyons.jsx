@@ -27,7 +27,7 @@ class UsingReactTachyons extends Component {
 
     render() {
         return (
-            <ResolveMarkdown color={this.props.color}>
+            <ResolveMarkdown className="t-body" color={this.props.color}>
                 {this.state.markdown}
             </ResolveMarkdown>
         );

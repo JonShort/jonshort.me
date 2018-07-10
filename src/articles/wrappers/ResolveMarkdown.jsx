@@ -25,13 +25,11 @@ const resolveMarkdownOptions = (color) => ({
     },
 });
 
-const ResolveMarkdown = ({ color, children }) => {
+const ResolveMarkdown = ({ className, color, children }) => {
     const resolvedOptions = resolveMarkdownOptions(color);
 
-    console.log(resolvedOptions);
-
     return (
-        <Markdown options={resolvedOptions}>
+        <Markdown className={className} options={resolvedOptions}>
             {children}
         </Markdown>
     );
