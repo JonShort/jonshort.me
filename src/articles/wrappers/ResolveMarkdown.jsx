@@ -8,13 +8,19 @@ const resolveMarkdownOptions = (color) => ({
     overrides: {
         a: {
             component: A,
-            className: `hover-${color} color-inherit`
+            props: {
+                className: `hover-${color} color-inherit`
+            },
         },
         p: {
-            className: 'f5 f3-ns mt0 lh-copy measure georgia',
+            props: {
+                className: 'f5 f3-ns lh-copy measure georgia',
+            },
         },
         blockquote: {
-            className: `f5 pa1 b tc bb bt bw1 f3-ns mh0 lh-copy measure georgia b--${color}`,
+            props: {
+                className: `f5 pa1 b tc bb bt bw1 f3-ns mh0 lh-copy measure georgia b--${color}`,
+            },
         },
     },
 });
