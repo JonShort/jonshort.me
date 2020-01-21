@@ -15,25 +15,22 @@
     "imagemin": "^5.3.1",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-pngquant": "^5.0.1",
-    "prop-types": "^15.5.10",
-    "tachyons-cli": "^1.0.10"
+    "prop-types": "^15.5.10"
   },
   "dependencies": {
     "markdown-to-jsx": "^6.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.1.1",
-    "react-scripts": "^1.1.0",
-    "tachyons": "^4.9.1"
+    "react-scripts": "^1.1.0"
   },
   "scripts": {
     "build": "react-scripts build",
     "clean": "rm -rf build",
-    "css": "tachyons src/App.css > src/index.css --minify",
     "eject": "react-scripts eject",
     "images": "node assets/imagemin/config.js",
-    "prebuild": "npm run css && npm run images",
-    "prestart": "npm run css && npm run images",
+    "prebuild": "npm run images",
+    "prestart": "npm run images",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "cypress": "cypress open"
