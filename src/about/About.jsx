@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Anchor from './Anchor';
+
 const About = () => {
     return (
         <section>
@@ -20,30 +22,23 @@ const About = () => {
                 </header>
                 <div className="fn fl-ns w-50-ns">
                     <p className="f5 lh-copy measure mt0-ns">
-                    I am a front-end developer at <a className="f5 fw6 bg-dark-green white no-underline underline-hover" href="https://rightindem.com/" target="_blank" rel="noopener noreferrer">RightIndem</a>, 
-                    focusing on best practice, maintainability, and bridging the gap between
-                    design and development.
+                    I am a full-stack developer at <Anchor href="https://www.experian.co.uk/">Experian</Anchor>, 
+                    focusing on best practice, maintainability, and empowering others.
                     </p>
                     <p className="f5 lh-copy measure">
-                    I am the maintainer of RightIndem's re-usable UI component library, supporting the company's <a className="f5 fw6 bg-blue white no-underline underline-hover" href="https://facebook.github.io/react/" target="_blank" rel="noopener noreferrer">React</a> applications.
-                    The UI library is a private npm package, with components ranging from a standard button, to a extensible dropdown.
-                    The components are documented using <a className="f5 fw6 bg-red white no-underline underline-hover" href="https://storybook.js.org/" target="_blank" rel="noopener noreferrer">React Storybook</a> and
-                    every component has unit tests written using <a className="f5 fw6 bg-yellow black no-underline underline-hover" href="https://github.com/airbnb/enzyme" target="_blank" rel="noopener noreferrer">Jest with Enzyme</a>.
+                    I have a few personal projects which I use mostly to learn new
+                    tech. <Anchor href="https://github.com/JonShort/testemail">Testemail</Anchor> is one my more useful
+                    projects, developed to help when creating unique email address aliases for testing software.
                     </p>
                     <p className="f5 lh-copy measure">
-                    I have a few personal projects, which I use mainly as a way to keep up to date with new tech
-                    (this site started as a way to try <a className="f5 fw6 bg-gray white no-underline underline-hover" href="http://tachyons.io/" target="_blank" rel="noopener noreferrer">Tachyons</a>).
-                    I've been using the awesome <a className="f5 fw6 bg-green white no-underline underline-hover" href="https://vuejs.org/" target="_blank" rel="noopener noreferrer">Vue.js</a> to
-                    make a webapp collating the best rhyming terms for the members of the RightIndem design team.
-                    Check it out <a className="f5 fw6 bg-green white no-underline underline-hover" href="https://github.com/JonShort/DesignerRhymer" target="_blank" rel="noopener noreferrer">here</a>.
-                    </p>
-                    <p className="f5 lh-copy measure">
-                    Most recently I have been checking out <a className="f5 fw6 bg-yellow black no-underline underline-hover" href="https://flow.org/" target="_blank" rel="noopener noreferrer">Flow</a> making a
-                    more visual experience, find the repo <a className="f5 fw6 bg-hot-pink white no-underline underline-hover" href="https://github.com/JonShort/aesthetic" target="_blank" rel="noopener noreferrer">here</a>.
+                    I have been getting into <Anchor href="https://www.rust-lang.org/">Rust</Anchor> recently, 
+                    and have used it for a lot of personal CLI tooling within Experian. I do have a public 
+                    repo where I store the exercises suggested by <Anchor href="https://doc.rust-lang.org/book/">The Rust Book</Anchor> which 
+                    can be found <Anchor href="https://github.com/JonShort/rust-exercises">Here</Anchor>.
                     </p>
                 </div>
             </article>
-            <div className="bb b--black-10 ph3 ph5-ns pt1 pb4">
+            <div className="b--black-10 ph3 ph5-ns pt1 pb4">
                 <Link to="/" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
                     <svg className="w1" data-icon="chevronLeft" viewBox="0 0 32 32" style={{fill: 'currentColor'}}>
                         <title>chevronLeft icon</title>
