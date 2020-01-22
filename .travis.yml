@@ -5,9 +5,12 @@ addons:
   apt:
     packages:
     - libgconf-2-4
+branches:
+  only:
+  - master
 cache:
   directories:
-    - /home/travis/.cypress/Cypress
+    - /home/travis/.cache/Cypress 
 install:
   - yarn
 before_script:
