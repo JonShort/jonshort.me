@@ -12,16 +12,16 @@
   "license": "MIT",
   "devDependencies": {
     "cypress": "^3.8.2",
-    "imagemin": "^5.3.1",
-    "imagemin-jpegtran": "^5.0.2",
-    "imagemin-pngquant": "^5.0.1",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "prop-types": "^15.7.2"
   },
   "dependencies": {
     "markdown-to-jsx": "^6.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.1.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0"
   },
   "scripts": {
