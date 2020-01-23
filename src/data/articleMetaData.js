@@ -1,32 +1,20 @@
-// Images
-import * as image from '../images/articleThumbs';
+import { BLOG_ROOT } from '../constants';
 
-const articleRoot = '/article';
+// Images
+import { ReactLogo } from '../images/articleThumbs';
 
 const articleMetaData = [
     {
-        imageSrc: image.StyledComponents,
+        color: 'hot-pink',
+        date: '23 January 2020',
+        description: "This article should prove or disprove this new structure",
+        id: '#1',
         imageAlt: 'The React logo',
-        url: `${articleRoot}/using-styled-components`,
-        title: '4 Months of Styled Components',
-        shortTitle: 'A Style Journey',
-        subtitle: 'Thoughts on Styled Components 4 months after adoption',
-        date: '3 August, 2017',
-        description: 
-            `In a world where css-in-js is becoming more common, how well does
-            Styled Components stand up to a real-world use-case?`,
-    },
-    {
-        imageSrc: image.ReactLogo,
-        imageAlt: 'The React logo',
-        url: `${articleRoot}/using-react-tachyons`,
-        title: 'Building a portfolio with React and Tachyons',
-        shortTitle: 'A React Portfolio',
-        subtitle: 'Building a portfolio with React and Tachyons',
-        date: '3 January, 2017',
-        description: 
-            `There are loads of quick ways to get a static site up and running quickly,
-            is it worth using React and Tachyons?`,
+        imageSrc: ReactLogo,
+        shortTitle: 'Test article',
+        subtitle: 'Thoughts on new structure for articles',
+        title: 'A test article',
+        url: `${BLOG_ROOT}/test-post-one`,
     }
 ];
 

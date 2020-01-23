@@ -5,11 +5,9 @@ import ArticleListItem from './ArticleListItem';
 import ScrollToTop from '../ScrollToTop';
 
 const ArticleList = ({articles}) => {
-
-    let articleItem = [];
-    articles.forEach(function(article){
-        articleItem.push(<ArticleListItem article={article} key={article.url} />);
-    });
+    let articleItem = articles.map(article => (
+        <ArticleListItem article={article} key={article.url} />
+    ));
 
     return (
         <section className="mw7 center avenir">

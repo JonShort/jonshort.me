@@ -9,26 +9,29 @@ import {
 // Service worker
 import registerServiceWorker from './registerServiceWorker';
 
+// Constants
+import { BLOG_ROOT } from './constants';
+
 // General Components
 import Home from './homepage/Home';
 import About from './about/About';
 import Error404 from './error/Error404';
 
-// Articles
-import {
-  UsingReactTachyons,
-  UsingStyledComponents,
-} from './articles/composed';
-
 // Styles
 import './index.css';
+
+
+
+// Testing
+import PostOne from './posts/post-one/PostOne';
+
+
 
 ReactDOM.render(
   <Router>
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/article/using-react-tachyons" component={UsingReactTachyons} />
-      <Route exact path="/article/using-styled-components" component={UsingStyledComponents} />
+      <Route exact path={`${BLOG_ROOT}/test-post-one`} component={PostOne} />
       <Route path="/about" component={About} />
       <Route component={Error404} />
     </Switch>
