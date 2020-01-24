@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const ArticleListItem = ({article}) => (
+const ArticleListItem = ({ article }) => (
     <article className="bt bb b--black-10">
         <Link className="db pv4 ph3 ph0-l no-underline black dim" to={article.url}>
             <div className="flex flex-column flex-row-ns">
