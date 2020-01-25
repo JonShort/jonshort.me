@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 // Service worker
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 
 // Constants
 import { BLOG_ROOT } from './constants';
@@ -33,4 +33,5 @@ ReactDOM.render(
   ,
   document.getElementById('root')
 );
-registerServiceWorker();
+
+serviceWorker.unregister();
