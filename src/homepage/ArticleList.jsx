@@ -1,20 +1,16 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types'
 
 import ArticleListItem from './ArticleListItem';
-import ScrollToTop from '../ScrollToTop';
 
-const ArticleList = ({articles}) => {
-
-    let articleItem = [];
-    articles.forEach(function(article){
-        articleItem.push(<ArticleListItem article={article} key={article.url} />);
-    });
+const ArticleList = ({ articles }) => {
+    const articleItems = useMemo(() => articles.map(article => (
+        <ArticleListItem article={article} key={article.url} />
+    )), [articles])
 
     return (
         <section className="mw7 center avenir">
-            <ScrollToTop />
-            {articleItem}
+            {articleItems}
         </section>
     );
 };

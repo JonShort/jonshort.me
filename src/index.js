@@ -9,16 +9,14 @@ import {
 // Service worker
 import registerServiceWorker from './registerServiceWorker';
 
+// Constants
+import { BLOG_ROOT } from './constants';
+
 // General Components
 import Home from './homepage/Home';
 import About from './about/About';
-import Error404 from './error/Error404';
-
-// Articles
-import {
-  UsingReactTachyons,
-  UsingStyledComponents,
-} from './articles/composed';
+import Articles from './articles/Articles';
+import Error404 from './Error404';
 
 // Styles
 import './index.css';
@@ -27,8 +25,7 @@ ReactDOM.render(
   <Router>
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/article/using-react-tachyons" component={UsingReactTachyons} />
-      <Route exact path="/article/using-styled-components" component={UsingStyledComponents} />
+      <Route exact path={`${BLOG_ROOT}/:slug`} component={Articles} />
       <Route path="/about" component={About} />
       <Route component={Error404} />
     </Switch>

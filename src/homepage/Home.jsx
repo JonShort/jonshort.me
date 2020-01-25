@@ -1,15 +1,17 @@
 import React from 'react';
 
-import Header from '../header/Header';
-import articleMetaData from '../data/articleMetaData';
+import Header from '../Header';
+import { allArticlesMetaData } from '../articles/articleMetaData';
 import ArticleList from './ArticleList';
-import Footer from '../footer/Footer';
+import Footer from '../Footer';
+import ScrollToTop from '../ScrollToTop';
 
 const Home = () => {
     return(
         <div>
+            <ScrollToTop />
             <Header />
-            <ArticleList articles={articleMetaData} />
+            <ArticleList articles={allArticlesMetaData} />
             <Footer />
         </div>
     );

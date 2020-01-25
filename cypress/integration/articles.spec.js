@@ -6,7 +6,7 @@ describe('Article page test', function() {
     it('Sees a list of articles', function(){
         cy.get('section')
           .children('article')
-          .should('to.not.have.length', 0)
+          .should('not.have.length', 0)
     })
 
     it('Vists the first article', function() {
@@ -41,7 +41,7 @@ describe('Article page test', function() {
     it('Checks body copy exists', function() {
         cy.get('.t-body')
           .children()
-          .should('to.not.have.length', 0)
+          .should('not.have.length', 0)
     })
 
     it('Returns to home', function() {
