@@ -1,0 +1,47 @@
+I first committed to the repo behind this website on [10 December 2016](https://github.com/JonShort/jonshort.me/commit/f60357eba79a818d3be9c7926799a312664322b3). This was when React was in v15, PropTypes were still part of the React library, and Typescript was for .net devs doing angular.
+
+What was 'the stack' for creating a static React website back then?
+
+- [Create-react-app](https://github.com/facebook/create-react-app) - used here
+- [React router](https://github.com/ReactTraining/react-router) - used here
+- [Redux](https://github.com/reduxjs/redux) - not used here
+
+[Create-react-app](https://github.com/facebook/create-react-app) 'CRA' was _the_ way to start a new React project. The community had struggled to settle on a 'boilerplate', so CRA came out looking to abstract away all the configuration that developers looking to try React struggled with.
+
+[React router](https://github.com/ReactTraining/react-router) was the best way for applications to route users around the site. Server-side rendering with React wasn't really 'a thing' at this point, so the majority of sites used this client-side routing, resulting in each site having a different method of handling authentication, 404s, and dynamic routes.
+
+One notable library missing from this site is [Redux](https://github.com/reduxjs/redux). Nowadays this seems normal (especially given the scale of the site), but back in 2016/2017 a lot of developers were advocating for keeping _all_ application state in redux.
+
+Redux being so popular resulted in libraries like [Redux form](https://github.com/redux-form/redux-form) becoming extremely popular too (this was actually a blessing back then, because experienced devs joining a React project seemed to immediately want to write their own form library 🤷‍♂️😱).
+
+### Refactoring the site
+
+The main issues I've run into while refactoring this site aren't issues with the stack, but issues with a lack of planning. When I originally made the site I wasn't thinking about the use-case from the outset, so the architecture just kind of evolved during the development. This isn't a great way to approach a project, because you end up having to make compromises because you've not considered a problem fully.
+
+> The issues I've run into aren't with the stack, but issues with a lack of planning.
+
+The original architecture involved 'articles' written in code (rather than something like markdown), and lots of weird Higher-order (HOC) components handling the formatting and display of articles. Really I'd question whether the site even needs blog posts on it, but it seemed the obvious 'personal site' choice at the time.
+
+I used [tachyons](https://github.com/tachyons-css/tachyons/) for styling this site, as at the time it seemed exciting (and bootstrap was in decline). This is probably the most annoying thing to deal with on the site, because I don't really have a reason to remember the syntax (it's lots of small 'utility' classes that you chain together), e.g:
+
+```html
+<div className="mw9 center pa4 pt5-ns ph7-l dtc v-mid">
+  <h3 className="f1 f-headline-l measure-narrow lh-title mv0">
+    Hello world
+  </h3>
+</div>
+```
+
+I guess that if you really get used to using it, styling would be really quick and easy to modify (without side-effects), but it doesn't really suit a site that I don't work on everyday. This is one reason i'm skeptical of [tailwind css](https://github.com/tailwindcss/tailwindcss) that's been growing in popularity recently.
+
+### Approaching this site in 2020
+
+In 2020 create-react-app isn't _really_ the no-brainer that it was in the past, and a lot of new 'frameworks' have been popping up, hoping to abstract away even more from the developer, letting them focus on the actual content of their site. [Next.js](https://github.com/zeit/next.js) and [Gatsby](https://github.com/gatsbyjs/gatsby) are the big two at the moment, both offering unique 'developer experience'.
+
+These frameworks can spin up a site that handles _all_ the criteria of this site in minutes, with the power of open source behind the architecture. Even though this site was setup with create-react-app, there are still things that have been hand-rolled for no real reason, for example:
+
+- Handling markdown articles, and rendering them at particular routes
+- Handling 404s
+- Minifying images
+
+For the time being I'll keep this site built on the original architecture from 2016, because it's fun to keep modifying the original design of a site that isn't _that_ different from the modern sites of today.

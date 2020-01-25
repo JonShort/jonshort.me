@@ -7,7 +7,7 @@ const Content = lazy(() => importMDX('./content.mdx'));
 
 const Post = () => (
   <Suspense fallback={<div></div>}>
-    <Content components={defaultComponentMapping} layoutProps={{color: 'red'}} />
+    <Content components={defaultComponentMapping} />
   </Suspense>
 );
 
