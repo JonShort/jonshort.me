@@ -2,22 +2,28 @@ const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
 const imageminPngquant = require('imagemin-pngquant');
 
-imagemin(['assets/images/*.{jpg,png}'], 'src/images', {
-	plugins: [
-		imageminJpegtran(),
-		imageminPngquant({quality: '65-80'})
-	]
-}).then(files => {
-	console.log(files);
-	//=> [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
-});
+(async () => {
+	const rootPromise = imagemin(['assets/images/*.{jpg,png}'], {
+		destination: 'src/images',
+		plugins: [
+			imageminJpegtran(),
+			imageminPngquant({
+				quality: [0.6, 0.8],
+			})
+		]
+	});
+	
+	const thumbPromise = imagemin(['assets/images/articleThumbs/*.{jpg,png}'], {
+		destination: 'src/images/articleThumbs',
+		plugins: [
+			imageminJpegtran(),
+			imageminPngquant({
+				quality: [0.6, 0.8],
+			})
+		]
+	});
 
-imagemin(['assets/images/articleThumbs/*.{jpg,png}'], 'src/images/articleThumbs', {
-	plugins: [
-		imageminJpegtran(),
-		imageminPngquant({quality: '65-80'})
-	]
-}).then(files => {
-	console.log(files);
-	//=> [{data: <Buffer 89 50 4e …>, path: 'build/images/foo.jpg'}, …]
-});
+	const [rootFiles, thumbFiles] = await Promise.all([rootPromise, thumbPromise]);
+	console.log(rootFiles, thumbFiles);
+})();
+
