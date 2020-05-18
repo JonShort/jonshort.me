@@ -1,0 +1,98 @@
+👍 This post was inspired by [the contents of a tutorial on wasm and rust](https://rustwasm.github.io/docs/book/introduction.html)
+
+## 'Smart' code
+
+Let's say we have a grid:
+
+```txt
+[1] [0] [1] [1] [0] [1]
+[1] [0] [0] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+```
+
+And my task is to figure out how many cells contain a 1 around a given cell (with wrapping - e.g. rightmost column is considered 'neighbor' to the leftmost).
+
+You could - as written [in a wasm tutorial](https://rustwasm.github.io/docs/book/game-of-life/implementing.html#rust-implementation) - write some fancy rust code:
+
+<small>note - I've commented this, don't worry about understanding every detail</small>
+
+```rust
+// Here the user provides coordiantes (row and column)
+fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
+    let mut count = 0;
+
+    // The first for loop runs, with delta_row signifying:
+    // [ ] the cell above
+    // [x] the chosen cell
+    // [ ] the cell below
+    for delta_row in [self.height - 1, 0, 1].iter().cloned() {
+
+        // The second for loop is similar, but because it's
+        // nested, it'll actually run 9 times
+        // [ ] [ ] [ ]
+        // [ ] [x] [ ] chosen cell is now the 'middle'
+        // [ ] [ ] [ ]
+        for delta_col in [self.width - 1, 0, 1].iter().cloned() {
+
+            // when both are 0, it's the current cell
+            // so we don't do anything
+            if delta_row == 0 && delta_col == 0 {
+                continue;
+            }
+
+            // because the grid overflows, we use a delta and
+            // modulo to get the cell the other side; e.g.
+            // [ ] [ ] [B] // 'below' cell is actually above
+            // [ ] [ ] [A]
+            // [R] [L] [C] // 'right' cell is on the other side
+            // e.g. (50 + 1) % 50 == 1
+            let neighbor_row = (row + delta_row) % self.height;
+            let neighbor_col = (column + delta_col) % self.width;
+
+            // implementation detail of how the cells
+            // are stored (flat array), this returns the
+            // index of the current cell
+            let idx = self.get_index(neighbor_row, neighbor_col);
+
+            // an 'alive' cell is 1, so the count is
+            // only incremented if the cell is alive
+            count += self.cells[idx] as u8;
+        }
+    }
+
+    // the final count is returned, which is
+    // the number of 'alive' cells near the current
+    count
+}
+```
+
+As a section of code, this is 😅 fairly confusing 😅 but also quite 'smart'. It can get the value in neighbor cells without worrying about the handling the edges of the grid in an explicit way, e.g. an if statement.
+
+## Profiling
+
+Our code now fulfils it's purpose, and would probably be considered a 'job done' going by our requirements.
+
+However, the 'smart' modulo operation (%) hides a potential performance hit.
+
+
+
+
+
+## Notes for starting
+
+- wasm rust tutorial
+
+  - https://rustwasm.github.io/docs/book/introduction.html
+
+- started the tutorial, cool way to approach the 'edges' of the universe
+
+- profiling section, shows that this is slower
+
+- The code that is less 'smart' is actually faster
+
+- How to handle this?
+
+- Profiling code, there is a difference
