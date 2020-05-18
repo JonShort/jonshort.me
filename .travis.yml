@@ -1,18 +1,16 @@
 language: node_js
 node_js:
-  - "lts/*"
+  - 'lts/*'
 addons:
   apt:
     packages:
-    - libgconf-2-4
+      - libgconf-2-4
 branches:
   only:
-  - master
+    - master
 cache:
   directories:
-    - /home/travis/.cache/Cypress 
-install:
-  - yarn
+    - /home/travis/.cache/Cypress
 before_script:
   - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash -c "npm run start &"; fi
 script:
