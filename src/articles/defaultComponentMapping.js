@@ -1,14 +1,4 @@
-import {
-  A,
-  Code,
-  H3,
-  Image,
-  Li,
-  P,
-  Pre,
-  Standout,
-  Wrapper,
-} from './components';
+import { A, Code, H3, Image, Li, P, Standout, Wrapper } from './components';
 
 const defaultComponentMapping = {
   a: A,
@@ -18,7 +8,6 @@ const defaultComponentMapping = {
   img: Image,
   li: Li,
   p: P,
-  pre: Pre,
   wrapper: Wrapper,
 };
 
