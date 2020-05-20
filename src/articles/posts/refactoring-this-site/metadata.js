@@ -24,5 +24,5 @@ export const metadata = {
     `,
     title: 'Refactoring this site 3 years on',
     url: `${BLOG_ROOT}/refactoring-this-site`,
-  }
+  },
 };

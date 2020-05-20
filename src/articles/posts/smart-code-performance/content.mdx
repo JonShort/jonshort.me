@@ -1,0 +1,183 @@
+👍 This post was _heavily_ inspired by an awesome [tutorial on wasm and rust](https://rustwasm.github.io/docs/book/introduction.html)
+
+### 'Smart' code
+
+Let's say we have a grid:
+
+```txt
+[1] [0] [1] [1] [0] [1]
+[1] [0] [0] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+[1] [0] [1] [1] [0] [1]
+```
+
+And my task is to figure out how many cells contain a 1 around a given cell (with wrapping - e.g. rightmost column is considered 'neighbor' to the leftmost).
+
+You could - as written [in the wasm + rust tutorial](https://rustwasm.github.io/docs/book/game-of-life/implementing.html#rust-implementation) - write some fancy rust code:
+
+<small>note - I've commented this, don't worry about understanding every detail</small>
+
+```rust
+// Here the user provides coordinates (row and column)
+fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
+    let mut count = 0;
+
+    // The first for loop runs, with delta_row signifying:
+    // [ ] the cell above
+    // [x] the chosen cell
+    // [ ] the cell below
+    for delta_row in [self.height - 1, 0, 1].iter().cloned() {
+
+        // The second for loop is similar, but because it's
+        // nested, it'll actually run 9 times
+        // [ ] [ ] [ ]
+        // [ ] [x] [ ] chosen cell is now the 'middle'
+        // [ ] [ ] [ ]
+        for delta_col in [self.width - 1, 0, 1].iter().cloned() {
+
+            // when both are 0, it's the current cell
+            // so we don't do anything
+            if delta_row == 0 && delta_col == 0 {
+                continue;
+            }
+
+            // because the grid overflows, we use a delta and
+            // modulo to get the cell the other side; e.g.
+            // [ ] [ ] [B] // 'below' cell is actually above
+            // [ ] [ ] [A]
+            // [R] [L] [C] // 'right' cell is on the other side
+            // e.g. (50 + 1) % 50 == 1
+            let neighbor_row = (row + delta_row) % self.height;
+            let neighbor_col = (column + delta_col) % self.width;
+
+            // implementation detail of how the cells
+            // are stored (flat array), this returns the
+            // index of the current cell
+            let idx = self.get_index(neighbor_row, neighbor_col);
+
+            // an 'alive' cell is 1, so the count is
+            // only incremented if the cell is alive
+            count += self.cells[idx] as u8;
+        }
+    }
+
+    // the final count is returned, which is
+    // the number of 'alive' cells near the current
+    count
+}
+```
+
+As a section of code, this is 😅 _fairly confusing_ 😅 but also quite 'smart'. It can get the value in neighbor cells without worrying about the handling the edges of the grid in an explicit way, e.g. an if statement.
+
+### Profiling
+
+Our code now fulfils it's purpose, and would probably be considered a 'job done' going by our requirements.
+
+However, the 'smart' modulo operation (%) hides a potential performance hit! It's a 'div instruction' which is division performed on unsigned integers. This means that for every cell in our grid we're performing 16 of these operations, which can be quite expensive.
+
+Here's a benchmark of the rust code, we can see the div operations in red:
+![rust code being benchmarked](https://rustwasm.github.io/docs/book/images/game-of-life/bench-perf-annotate.png)
+
+### Speeding up the code by removing 'smart stuff'
+
+As written [in the wasm + rust tutorial](https://rustwasm.github.io/docs/book/game-of-life/time-profiling.html#making-time-run-faster), we can make this code less fancy, and acheive a speedup at the same time, by using if statements and no modulo operators.
+
+We rewrite our code to:
+
+<small>Again, I've commented this, don't worry about understanding every detail!</small>
+
+```rust
+// coordinates provided as before
+fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
+    let mut count = 0;
+
+    // if we're at the top of the grid, north is actually the
+    // bottom of the grid 
+    let north = if row == 0 {
+        self.height - 1
+    } else {
+        row - 1
+    };
+
+    // if we're at the bottom of the grid, south is actually
+    // the top of the grid
+    let south = if row == self.height - 1 {
+        0
+    } else {
+        row + 1
+    };
+
+    // if we're at the left of the grid, west is actually
+    // the right of the grid
+    let west = if column == 0 {
+        self.width - 1
+    } else {
+        column - 1
+    };
+
+    // if we're at the right of the grid, east is actually
+    // the left of the grid
+    let east = if column == self.width - 1 {
+        0
+    } else {
+        column + 1
+    };
+
+    // In this section we get the value of all the neighbors
+    // [nw] [n] [ne]    [1] [0] [1]
+    // [w]       [e]  = [0]     [0] = 4
+    // [sw] [s] [se]    [1] [0] [1]
+
+    let nw = self.get_index(north, west);
+    count += self.cells[nw] as u8;
+
+    let n = self.get_index(north, column);
+    count += self.cells[n] as u8;
+
+    let ne = self.get_index(north, east);
+    count += self.cells[ne] as u8;
+
+    let w = self.get_index(row, west);
+    count += self.cells[w] as u8;
+
+    let e = self.get_index(row, east);
+    count += self.cells[e] as u8;
+
+    let sw = self.get_index(south, west);
+    count += self.cells[sw] as u8;
+
+    let s = self.get_index(south, column);
+    count += self.cells[s] as u8;
+
+    let se = self.get_index(south, east);
+    count += self.cells[se] as u8;
+
+    // Then the same as before, we return the count
+    count
+}
+```
+
+So our code is now significantly longer, we're doing a lot of things that look repetitive. A reviewer might ask if there's a way to abstract the logic away; but since we've seen the two different approaches, we can see that the code feels easier to read:
+* by using points of a compass we've given readers something tangible to reason about while reading
+* no longer do we have to explain that we're using a delta (and potentially why)
+* the messy nested for loops are removed
+
+### The result
+
+```bash
+$ cargo benchcmp before.txt after.txt
+ name            before.txt ns/iter  after.txt ns/iter  diff %  speedup
+ universe_ticks  664,421             87,258            -86.87%   x 7.61
+```
+
+The new code actually yields a _7.61x_ speed up!
+
+We're often pushed to find 'clean one-liner' solutions, or abstract something so we don't repeat ourselves. But sometimes there are benefits in both readability and performance when we make code 'simpler'.
+
+Profiling and getting the best performance out of code can be a useful exercise, but make sure the gains are worth it.
+
+🤓 Thanks for reading, check out the excellent [tutorial on wasm and rust](https://rustwasm.github.io/docs/book/introduction.html) which gave me the content for this article.
+
+And for rust in general, i highly reccomend [the official rust book](https://doc.rust-lang.org/book/), it's some of the best documentation i've ever read 🥳
