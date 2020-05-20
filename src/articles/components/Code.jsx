@@ -24,7 +24,7 @@ const Code = ({ children, className }) => {
 
         return (
           <pre
-            className={`overflow-x-auto mw7 ${className}`}
+            className={`overflow-x-auto mw7 f7 f6-ns f5-l ${className}`}
             style={{ ...style, padding: '20px' }}
           >
             {tokens.map((line, i) => (

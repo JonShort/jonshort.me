@@ -7,14 +7,14 @@ const Image = (props) => {
   const resolvedSrc = imageMappings[props.src];
 
   if (!resolvedSrc) {
-    return null;
+    return <img src={props.src} alt={props.alt} loading="lazy" />;
   }
 
-  return <img src={resolvedSrc} alt={props.alt} />
+  return <img src={resolvedSrc} alt={props.alt} />;
 };
 
 Image.propTypes = {
-    children: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default Image;
