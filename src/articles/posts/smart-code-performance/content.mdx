@@ -77,7 +77,7 @@ Our code now fulfils it's purpose, and would probably be considered a 'job done'
 
 However, the 'smart' modulo operation (%) hides a potential performance hit! It's a 'div instruction' which is division performed on unsigned integers. This means that for every cell in our grid we're performing 16 of these operations, which can be quite expensive.
 
-Here's a benchmark of the rust code, we can see the div operations in red:
+Here's a benchmark of the rust code, we can see the div instructions in red:
 ![rust code being benchmarked](https://rustwasm.github.io/docs/book/images/game-of-life/bench-perf-annotate.png)
 
 ### Speeding up the code by removing 'smart stuff'
