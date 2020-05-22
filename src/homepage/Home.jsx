@@ -7,14 +7,14 @@ import Footer from '../Footer';
 import ScrollToTop from '../ScrollToTop';
 
 const Home = () => {
-    return(
-        <div>
-            <ScrollToTop />
-            <Header />
-            <ArticleList articles={allArticlesMetaData} />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="min-vh-100">
+      <ScrollToTop />
+      <Header />
+      <ArticleList articles={allArticlesMetaData} />
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
