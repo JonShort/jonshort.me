@@ -11,10 +11,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^4.7.0",
+    "cypress": "^4.8.0",
     "imagemin": "^7.0.1",
     "imagemin-jpegtran": "^7.0.0",
-    "imagemin-pngquant": "^8.0.0",
+    "imagemin-pngquant": "^9.0.0",
     "prop-types": "^15.7.2"
   },
   "dependencies": {
