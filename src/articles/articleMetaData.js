@@ -1,9 +1,11 @@
+import { metadata as handlingLineEndings } from './posts/handling-line-endings/metadata';
 import { metadata as refactoringThisSite } from './posts/refactoring-this-site/metadata';
 import { metadata as smartCodePerformance } from './posts/smart-code-performance/metadata';
 
 const articleMetaData = {
-  ...smartCodePerformance,
+  ...handlingLineEndings,
   ...refactoringThisSite,
+  ...smartCodePerformance,
 };
 
 export const allArticlesMetaData = Object.keys(articleMetaData).map(

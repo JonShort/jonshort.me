@@ -1,0 +1,177 @@
+[Line endings](https://en.wikipedia.org/wiki/Newline) can be extremely annoying when sharing code between mac / linux / windows.
+
+Each operating system handles line endings differently, with the two main 'end of line' (EOL) types being:
+
+- `CRLF` (windows)
+- `LF` (unix / mac)
+
+### What are line endings?
+
+A hangover of ASCII code being developed in the 1960s, `CRLF` actually represents two instructions, 'carriage return' (CR) and 'line feed' (LF). 
+
+If we imagine a typewriter, `CR` instructs the 'carriage' (the part which horizontally positions the paper) to return to its starting position, then `LF` feeds paper into the carriage, creating a newline.
+
+![diagram showing how a typewriter works](typewriter_illustration)
+
+### The codes behind line endings
+
+Imagine we access a windows machine and create a text file with the following content:
+
+```txt
+a
+
+b
+
+c
+```
+
+If we were to look at the ASCII behind the file, it'd look something like:
+
+```ASCII
+61 0D 0A 0D 0A 62 0D 0A 0D 0A 63
+```
+
+<small>note - I chose hex because it's a bit more compact than the raw binary</small>
+
+However if we had created our text file on a mac, it might instead look like:
+
+```ASCII
+61 0A 0A 62 0A 0A 63
+```
+
+Here's what each hex represents:
+- `61` - a
+- `62` - b
+- `63` - c
+- `0D` - CR
+- `0A` - LF 
+
+Notice that wherever there is a line break, windows includes `0D 0A` (CR LF) whereas mac includes only `0A` (LF).
+
+Reading & writing text files with different line endings might have led to issues in the past, but nowadays most programs / operating systems handle it gracefully, so users don't have to worry about which EOL style was used.
+
+It's usually when we involve source control that the problems start to appear.
+
+### A real-life scenario
+
+Let's run through a scenario (with a link to where this happened to me 😅):
+
+1. We fork a repository to fix a bug that has been reported
+1. Our first commit goes in, where we edited a few lines in one file
+1. We continue making changes, eventually we've made changs in 3 different files
+1. [We submit the PR, and notice the diff is unreadable!](https://github.com/FormidableLabs/prism-react-renderer/pull/83/files/e6d4f1ec6039205cdae494ddbc1da3138e7a2a2b)
+
+Git is showing us that every single line in the file has changed, but it isn't highlighting a specific area! It turns out that we've accidentally changed all the line endings in each file we edited.
+
+In our scenario:
+* The repository didn't include a `.gitattributes` file
+* The repository used `CRLF` line endings (this was surprising)
+* I was working on macOS with `core.autocrlf` set to "input" globally
+
+### gitattributes
+
+The `.gitattributes` file handles a few different things, but the most common use is to tell git how to handle line endings for different filetypes.
+
+They range in complexity, from a simple:
+
+```yml
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+* text=auto
+```
+
+To something more bespoke:
+
+```yml
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.c text
+*.h text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+```
+
+The flags above show:
+* `binary` - don't process this file for line endings
+* `text` - process this file for line endings
+* `eol` - convert all line endings to this style 
+
+### core.autocrlf
+
+The `core.autocrlf` setting controls how git handles the line endings of files, this includes on checkout and on commit.
+
+There are three options that can be used:
+* true
+* input
+* false
+
+The `true` option will convert the line endings to `CRLF` when checked out, but ensure line endings are `LF` on commit.
+
+The `input` option won't change line endings on checkout, but will ensure that files are `LF` on commit.
+
+The `false` option will disable any conversion, allowing `CRLF` line endings to be committed.
+
+It's worth noting that these 'generic' options are overridden by the `.gitattributes` file, which is why it's usually a good idea to include one of these files if you're working on a project with developers who use a mixture of operating systems.
+
+### What's the best configuration?
+
+Generally git reccomends text files use `LF` line endings when committed to source control. Because of this, the best 'default' option for `core.autocrlf` varies depending on the OS:
+
+* **Windows**
+Reccomends **true**, which gives you `CRLF` locally, but `LF` in source control
+* **Unix / MacOS**
+Reccomends **input**, which ensures that code is `LF` when checked in, but doesn't convert on checkout
+
+### How can we set the config?
+
+It's often useful to setup a global git configuration, so that we have some reasonable defaults when working in new repositories.
+
+Then when a repository needs bespoke settings, we can set a local config which will only be used for that particular repo.
+
+Here are some examples:
+
+_Check the current global git config_
+```bash
+git config --global --list
+```
+
+_Set the global autocrlf config to input_
+```bash
+git config --global core.autocrlf input
+```
+
+_Check the autocrlf config which will be used for the current repo_
+```bash
+git config --get core.autocrlf
+```
+
+_Set the local repo config to false_
+```bash
+git config --local core.autocrlf false
+```
+
+### Summary
+
+I hope you've found something useful in this article; most of this information has come from me having to deal with line endings issues, but the ASCII roots informaation I read in [Charles Petzold](https://en.wikipedia.org/wiki/Charles_Petzold)'s excellent book [CODE](https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software).
+
+The general best practice to line endings would be:
+
+1. Set up a gitattributes file in all shared repositories
+1. Set autocrlf globally to the git reccomendation
+1. If a repo uses CRLF exclusively, locally set your autocrlf value to false
+
+### Extra!
+
+Recently I've seen that [Prettier](https://prettier.io/) includes an [end-of-line](https://prettier.io/docs/en/options.html#end-of-line) config option. This might be a nice way to help reduce the amount of erroneous line endings that get included in shared projects, so is probably worth setting if using prettier on a project.
+
+This prettier option is also useful if you need to change the line-endings for a particular file; set it to what you need, and format the file!
+
+Thanks for reading 🥳
