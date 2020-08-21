@@ -13,7 +13,7 @@ export const metadata = {
     date: '20 August 2020',
     description: `
       Dealing with line endings is something that most developers
-      will have to do at some point, and can be tricky
+      will have to do at some point, and it can be tricky
     `,
     id: '3',
     imageAlt: 'A scream emoji',

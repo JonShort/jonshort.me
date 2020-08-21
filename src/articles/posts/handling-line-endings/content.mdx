@@ -58,8 +58,8 @@ Let's run through a scenario (with a link to where this happened to me 😅):
 
 1. We fork a repository to fix a bug that has been reported
 1. Our first commit goes in, where we edited a few lines in one file
-1. We continue making changes, eventually we've made changs in 3 different files
-1. [We submit the PR, and notice the diff is unreadable!](https://github.com/FormidableLabs/prism-react-renderer/pull/83/files/e6d4f1ec6039205cdae494ddbc1da3138e7a2a2b)
+1. We continue making changes, eventually we've made changes in 3 different files
+1. [We submit the PR, and notice the diff is unreadable!](https://github.com/FormidableLabs/prism-react-renderer/pull/83/files/e6d4f1ec6039205cdae494ddbc1da3138e7a2a2b#diff-46e096273c34574c69c78c6fe33ac032)
 
 Git is showing us that every single line in the file has changed, but it isn't highlighting a specific area! It turns out that we've accidentally changed all the line endings in each file we edited.
 
@@ -75,26 +75,33 @@ The `.gitattributes` file handles a few different things, but the most common us
 They range in complexity, from a simple:
 
 ```yml
-# Handle line endings automatically for files detected as text
-# and leave all files detected as binary untouched.
+# Handle line endings automatically
+# for files detected as text
+# and leave all files detected
+# as binary untouched.
 * text=auto
 ```
 
 To something more bespoke:
 
 ```yml
-# Set the default behavior, in case people don't have core.autocrlf set.
+# Set the default behavior,
+# in case people don't have
+# core.autocrlf set.
 * text=auto
 
-# Explicitly declare text files you want to always be normalized and converted
+# Explicitly declare text files you
+# want to always be converted
 # to native line endings on checkout.
 *.c text
 *.h text
 
-# Declare files that will always have CRLF line endings on checkout.
+# Declare files that will always
+# have CRLF line endings on checkout.
 *.sln text eol=crlf
 
-# Denote all files that are truly binary and should not be modified.
+# Denote all files that are truly
+# binary and should not be modified.
 *.png binary
 *.jpg binary
 ```
@@ -106,7 +113,7 @@ The flags above show:
 
 ### core.autocrlf
 
-The `core.autocrlf` setting controls how git handles the line endings of files, this includes on checkout and on commit.
+The `core.autocrlf` setting controls how git handles line endings on checkout and on commit.
 
 There are three options that can be used:
 * true
@@ -125,10 +132,8 @@ It's worth noting that these 'generic' options are overridden by the `.gitattrib
 
 Generally git reccomends text files use `LF` line endings when committed to source control. Because of this, the best 'default' option for `core.autocrlf` varies depending on the OS:
 
-* **Windows**
-Reccomends **true**, which gives you `CRLF` locally, but `LF` in source control
-* **Unix / MacOS**
-Reccomends **input**, which ensures that code is `LF` when checked in, but doesn't convert on checkout
+* **Windows** reccomends **true**, which gives you `CRLF` locally, but `LF` in source control
+* **Unix / MacOS** reccomends **input**, which ensures that code is `LF` when checked in, but doesn't convert on checkout
 
 ### How can we set the config?
 
@@ -160,7 +165,7 @@ git config --local core.autocrlf false
 
 ### Summary
 
-I hope you've found something useful in this article; most of this information has come from me having to deal with line endings issues, but the ASCII roots informaation I read in [Charles Petzold](https://en.wikipedia.org/wiki/Charles_Petzold)'s excellent book [CODE](https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software).
+I hope you've found something useful in this article; most of this information has come from me having to deal with line endings issues, but the ASCII information I read in Charles Petzold's excellent book [CODE](https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software).
 
 The general best practice to line endings would be:
 
