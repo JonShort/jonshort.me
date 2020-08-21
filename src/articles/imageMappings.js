@@ -1,9 +1,7 @@
-import ReactLogo from '../images/articleThumbs/react-logo.png';
-import StyledComponents from '../images/articleThumbs/styled-components.png';
+import TypewriterIllustration from '../images/typewriter-illustration.png';
 
 const imageMappings = {
-  react_logo: ReactLogo,
-  styled_components: StyledComponents,
+  typewriter_illustration: TypewriterIllustration,
 };
 
 export default imageMappings;
