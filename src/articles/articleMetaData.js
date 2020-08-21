@@ -4,8 +4,8 @@ import { metadata as smartCodePerformance } from './posts/smart-code-performance
 
 const articleMetaData = {
   ...handlingLineEndings,
-  ...refactoringThisSite,
   ...smartCodePerformance,
+  ...refactoringThisSite,
 };
 
 export const allArticlesMetaData = Object.keys(articleMetaData).map(
