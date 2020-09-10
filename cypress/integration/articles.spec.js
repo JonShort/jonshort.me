@@ -35,6 +35,6 @@ describe('Article page test', () => {
   it('returns to home', () => {
     cy.get('.t-body').next().find('a').click();
 
-    cy.url().should('be', '/');
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/`);
   });
 });

@@ -28,7 +28,7 @@ describe('About page test', () => {
   it('Navigates to homepage', () => {
     cy.get('a:contains("Home")').click();
 
-    cy.url().should('be', '/');
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/`);
   });
 
   it('Returns to about page', () => {
