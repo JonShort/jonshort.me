@@ -1,7 +1,6 @@
 describe('About page test', () => {
   it('Visits about page', () => {
     cy.visit('/about');
-    cy.visit('/about');
   });
 
   it('Checks the header & external links', () => {

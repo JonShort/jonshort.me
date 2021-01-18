@@ -1,7 +1,6 @@
 describe('Article page test', () => {
   it('Visits homepage', () => {
     cy.visit('/');
-    cy.visit('/');
   });
 
   it('sees a list of articles', () => {
