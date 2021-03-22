@@ -7,21 +7,21 @@ import Post from './';
 import { Pattern } from '../../../images/articleThumbs';
 
 export const metadata = {
-  'manipulating-problems': {
+  'automating-local-env-vars': {
     color: 'yellow',
     content: Post,
-    date: '18 March 2021',
+    date: '22 March 2021',
     description: `
-      Sometimes reframing a problem produces a better solution
+      Can we improve the experience of using environment variables locally?
     `,
     id: '4',
     imageAlt: 'Tiles in a pattern',
     imageSrc: Pattern,
-    shortTitle: 'Manipulating problems',
+    shortTitle: 'Automating local environment variables',
     subtitle: `
-      Sometimes reframing a problem produces a better solution
+      Changing env vars manually can be repetitive
     `,
-    title: 'Manipulating problems',
-    url: `${BLOG_ROOT}/manipulating-problems`,
+    title: 'Automating local environment variables',
+    url: `${BLOG_ROOT}/automating-local-env-vars`,
   },
 };
