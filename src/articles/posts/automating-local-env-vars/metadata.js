@@ -7,7 +7,7 @@ import Post from './';
 import { Pattern } from '../../../images/articleThumbs';
 
 export const metadata = {
-  'local-environment-variables': {
+  'automating-local-env-vars': {
     color: 'yellow',
     content: Post,
     date: '22 March 2021',
@@ -22,6 +22,6 @@ export const metadata = {
       Changing env vars manually can be repetitive
     `,
     title: 'Automating local environment variables',
-    url: `${BLOG_ROOT}/local-environment-variables`,
+    url: `${BLOG_ROOT}/automating-local-env-vars`,
   },
 };
