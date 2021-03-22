@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Header from '../Header';
 import { allArticlesMetaData } from '../articles/articleMetaData';
@@ -8,12 +9,17 @@ import ScrollToTop from '../ScrollToTop';
 
 const Home = () => {
   return (
-    <div className="min-vh-100">
-      <ScrollToTop />
-      <Header />
-      <ArticleList articles={allArticlesMetaData} />
-      <Footer />
-    </div>
+    <>
+      <Helmet>
+        <title key="title">JonShort.me</title>
+      </Helmet>
+      <div className="min-vh-100">
+        <ScrollToTop />
+        <Header />
+        <ArticleList articles={allArticlesMetaData} />
+        <Footer />
+      </div>
+    </>
   );
 };
 
