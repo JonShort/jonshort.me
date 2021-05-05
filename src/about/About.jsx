@@ -67,26 +67,17 @@ const About = () => {
             <p className="f5 lh-copy measure">
               I have a few personal projects which I use mostly to learn new
               tech.{' '}
-              <Anchor href="https://github.com/JonShort/testemail">
-                Testemail
-              </Anchor>{' '}
-              is one my more useful projects, developed to help when creating
-              unique email address aliases for testing software.
+              <Anchor href="https://github.com/JonShort/cenv">cenv</Anchor> is
+              one my more useful projects, developed to help developers manage
+              changing env vars within .env files. I wrote an article around the
+              inspiration for this which can be read{' '}
+              <Anchor href="/article/automating-local-env-vars">here</Anchor>.
             </p>
             <p className="f5 lh-copy measure">
-              I have been getting into{' '}
-              <Anchor href="https://www.rust-lang.org/">Rust</Anchor> recently,
-              and have used it for a lot of personal CLI tooling within
-              Experian. I do have a public repo where I store the exercises
-              suggested by{' '}
-              <Anchor href="https://doc.rust-lang.org/book/">
-                The Rust Book
-              </Anchor>{' '}
-              which can be found{' '}
-              <Anchor href="https://github.com/JonShort/rust-exercises">
-                Here
-              </Anchor>
-              .
+              While day-to-day I write mostly Typescript / Javascript, I am a
+              big fan of <Anchor href="https://www.rust-lang.org/">Rust</Anchor>
+              , and have used it for a lot of CLI tooling both personal and
+              within Experian.
             </p>
           </div>
         </article>
