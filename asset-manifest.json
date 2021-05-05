@@ -5,8 +5,8 @@
     "main.js.map": "/static/js/main.f475c5b8.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5e73d182.js",
     "runtime-main.js.map": "/static/js/runtime-main.5e73d182.js.map",
-    "static/js/2.f2b6207e.chunk.js": "/static/js/2.f2b6207e.chunk.js",
-    "static/js/2.f2b6207e.chunk.js.map": "/static/js/2.f2b6207e.chunk.js.map",
+    "static/js/2.878262dd.chunk.js": "/static/js/2.878262dd.chunk.js",
+    "static/js/2.878262dd.chunk.js.map": "/static/js/2.878262dd.chunk.js.map",
     "static/js/3.50c46f84.chunk.js": "/static/js/3.50c46f84.chunk.js",
     "static/js/3.50c46f84.chunk.js.map": "/static/js/3.50c46f84.chunk.js.map",
     "static/js/4.b42cd196.chunk.js": "/static/js/4.b42cd196.chunk.js",
@@ -17,7 +17,7 @@
     "static/js/6.b41fda5a.chunk.js.map": "/static/js/6.b41fda5a.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.8a9478d4.chunk.css.map": "/static/css/main.8a9478d4.chunk.css.map",
-    "static/js/2.f2b6207e.chunk.js.LICENSE.txt": "/static/js/2.f2b6207e.chunk.js.LICENSE.txt",
+    "static/js/2.878262dd.chunk.js.LICENSE.txt": "/static/js/2.878262dd.chunk.js.LICENSE.txt",
     "static/media/code-block.6df98d74.png": "/static/media/code-block.6df98d74.png",
     "static/media/pattern.1eb220e2.png": "/static/media/pattern.1eb220e2.png",
     "static/media/scream-emoji-banner.4650aac4.png": "/static/media/scream-emoji-banner.4650aac4.png",
@@ -25,7 +25,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5e73d182.js",
-    "static/js/2.f2b6207e.chunk.js",
+    "static/js/2.878262dd.chunk.js",
     "static/css/main.8a9478d4.chunk.css",
     "static/js/main.f475c5b8.chunk.js"
   ]
