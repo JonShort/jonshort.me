@@ -12,8 +12,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^8.1.0",
-    "imagemin": "^8.0.0",
+    "cypress": "^8.2.0",
+    "imagemin": "^8.0.1",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-pngquant": "^9.0.2",
     "prop-types": "^15.7.2"
