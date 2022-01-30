@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 // Components
@@ -17,7 +17,7 @@ const Articles = () => {
   const metadata = articleMetaData[slug];
 
   if (!metadata) {
-    return <Redirect to="/404" />;
+    return <Navigate to="/404" />;
   }
 
   return (

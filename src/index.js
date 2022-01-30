@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Service worker
 import * as serviceWorker from './serviceWorker';
@@ -18,14 +18,14 @@ import Error404 from './Error404';
 import './index.css';
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path={`${BLOG_ROOT}/:slug`} component={Articles} />
-      <Route path="/about" component={About} />
-      <Route component={Error404} />
-    </Switch>
-  </Router>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path={`${BLOG_ROOT}/:slug`} element={<Articles />} />
+      <Route path="/about" element={<About />} />
+      <Route path="*" element={<Error404 />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
