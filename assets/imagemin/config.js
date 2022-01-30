@@ -1,8 +1,8 @@
-import imagemin from 'imagemin';
-import imageminJpegtran from 'imagemin-jpegtran';
-import imageminPngquant from 'imagemin-pngquant';
-
 (async () => {
+  const { default: imagemin } = await import('imagemin');
+  const imageminJpegtran = require('imagemin-jpegtran');
+  const imageminPngquant = require('imagemin-pngquant');
+
   const rootPromise = imagemin(['assets/images/*.{jpg,png}'], {
     destination: 'src/images',
     plugins: [
