@@ -11,13 +11,12 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@squoosh/cli": "^0.7.2",
     "cypress": "^9.3.1",
-    "imagemin": "^8.0.1",
-    "imagemin-jpegtran": "^7.0.0",
-    "imagemin-pngquant": "^9.0.2",
     "prop-types": "^15.8.1"
   },
   "dependencies": {
+    "@mdx-js/tag": "^0.20.3",
     "mdx.macro": "^0.2.9",
     "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.26.0",
@@ -25,18 +24,17 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "5.0.0"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
     "build": "react-scripts build",
     "clean": "rm -rf build",
+    "cypress": "cypress open",
     "eject": "react-scripts eject",
-    "images": "node assets/imagemin/config.js",
+    "images": "squoosh-cli --oxipng auto -d src/images/ assets/images/ && squoosh-cli --oxipng auto -d src/images/articleThumbs assets/images/articleThumbs",
     "prebuild": "npm run images",
-    "prestart": "npm run images",
     "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
-    "cypress": "cypress open"
+    "test": "react-scripts test --env=jsdom"
   },
   "browserslist": {
     "production": [
